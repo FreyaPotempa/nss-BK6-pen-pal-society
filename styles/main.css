@@ -1,0 +1,53 @@
+.penPalForm {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border: 1px dashed salmon;
+    padding: 20px;
+}
+
+textarea {
+    width: 80%;
+    margin: 5px 0px;
+}
+
+.topics {
+    padding: 4px;
+    margin-bottom: 8px;
+}
+
+.recipients {
+    margin-bottom: 15px;
+}
+
+.authors {
+    margin-bottom: 10px;
+}
+
+/* not working */
+#letterField {
+    width: 100%;
+    border: 1px solid purple
+}
+
+.letterList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.postedLetter {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border: 4px solid rgba(0, 0, 0, 0.634);
+    margin: 30px;
+    background-color: rgba(219, 167, 103, 0.245);
+    padding: 12px;
+}
+
+.selectedTopics {
+    width: 20%;
+    border-radius: 25%;
+
+}

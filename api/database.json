@@ -1,0 +1,93 @@
+{
+  "authors": [
+    {
+      "id": 1,
+      "aName": "Maya Angelou",
+      "aEmail": "Maya@angelou.com"
+    },
+    {
+      "id": 2,
+      "aName": "Mark Twain",
+      "aEmail": "Mark@twain.com"
+    },
+    {
+      "id": 3,
+      "aName": "James Joyce",
+      "aEmail": "James@Joyce.com"
+    }
+  ],
+  "recipients": [
+    {
+      "id": 1,
+      "rName": "Grace Hopper",
+      "rEmail": "Grace@Hopper.com"
+    },
+    {
+      "id": 2,
+      "rName": "Ada Lovelace",
+      "rEmail": "Ada@Lovelace.com"
+    },
+    {
+      "id": 3,
+      "rName": "Hedy Lamarr",
+      "rEmail": "Hedy@lamarr.com"
+    }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "title": "Business"
+    },
+    {
+      "id": 2,
+      "title": "Friendly"
+    },
+    {
+      "id": 3,
+      "title": "Family"
+    },
+    {
+      "id": 4,
+      "title": "Congratulations"
+    },
+    {
+      "id": 5,
+      "title": "Condolences"
+    }
+  ],
+  "letters": [
+    {
+      "letterContent": "did I fix it?",
+      "authorId": 2,
+      "recipientId": 2,
+      "topicId": 5,
+      "sent": "2023-01-31T15:32:56.808Z",
+      "id": 2
+    },
+    {
+      "letterContent": "just a diff author",
+      "authorId": 3,
+      "recipientId": 3,
+      "topicId": 3,
+      "sent": "2023-01-31T15:32:56.808Z",
+      "id": 3
+    },
+    {
+      "letterContent": "This is a letter for a timestamp",
+      "authorId": 2,
+      "recipientId": 3,
+      "topicId": 5,
+      "sent": "2023-01-31T15:32:56.808Z",
+      "id": 4
+    },
+    {
+      "letterContent": "    Checking to see if I broke anything when I converted this field to a text area. Fingers crossed!",
+      "authorId": 2,
+      "recipientId": 1,
+      "topicId": 4,
+      "sent": "2023-01-31T17:24:12.721Z",
+      "id": 5
+    }
+  ],
+  "letterTopics": []
+}
