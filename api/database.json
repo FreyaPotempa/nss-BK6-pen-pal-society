@@ -57,37 +57,75 @@
   ],
   "letters": [
     {
-      "letterContent": "did I fix it?",
+      "letterId": 11,
+      "letterContent": "    oh my god it's twerking!",
       "authorId": 2,
+      "recipientId": 1,
+      "sent": "2023-01-31T20:15:21.904Z",
+      "id": 12
+    },
+    {
+      "letterId": 12,
+      "letterContent": "    Trying it all together now",
+      "authorId": 1,
       "recipientId": 2,
-      "topicId": 5,
-      "sent": "2023-01-31T15:32:56.808Z",
+      "sent": "2023-01-31T20:26:32.392Z",
+      "id": 13
+    },
+    {
+      "letterId": 3,
+      "letterContent": "    OH my goodness I did the stretchy goal and I'm so happy and also I fretted about a thing that really wasn't that big of a deal!",
+      "authorId": 1,
+      "recipientId": 1,
+      "sent": "2023-01-31T20:41:54.977Z",
+      "id": 14
+    }
+  ],
+  "selectedTopics": [
+    {
+      "topicId": 1,
+      "letterId": 11,
+      "id": 1
+    },
+    {
+      "topicId": 3,
+      "letterId": 11,
       "id": 2
     },
     {
-      "letterContent": "just a diff author",
-      "authorId": 3,
-      "recipientId": 3,
-      "topicId": 3,
-      "sent": "2023-01-31T15:32:56.808Z",
+      "topicId": 5,
+      "letterId": 11,
       "id": 3
     },
     {
-      "letterContent": "This is a letter for a timestamp",
-      "authorId": 2,
-      "recipientId": 3,
-      "topicId": 5,
-      "sent": "2023-01-31T15:32:56.808Z",
+      "topicId": 2,
+      "letterId": 12,
       "id": 4
     },
     {
-      "letterContent": "    Checking to see if I broke anything when I converted this field to a text area. Fingers crossed!",
-      "authorId": 2,
-      "recipientId": 1,
       "topicId": 4,
-      "sent": "2023-01-31T17:24:12.721Z",
+      "letterId": 12,
       "id": 5
+    },
+    {
+      "topicId": 5,
+      "letterId": 12,
+      "id": 6
+    },
+    {
+      "topicId": 2,
+      "letterId": 3,
+      "id": 7
+    },
+    {
+      "topicId": 3,
+      "letterId": 3,
+      "id": 8
+    },
+    {
+      "topicId": 4,
+      "letterId": 3,
+      "id": 9
     }
-  ],
-  "letterTopics": []
+  ]
 }

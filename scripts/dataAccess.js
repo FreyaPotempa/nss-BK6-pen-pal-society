@@ -4,7 +4,8 @@ const letterBuilder = {
     authors: [],
     recipients: [],
     topics: [],
-    letters: []
+    letters: [],
+    selectedTopics: []
 }
 
 const mainContainer = document.querySelector("#container")
@@ -48,16 +49,20 @@ export const fetchRecipients = () => {
         }
     )
 }
+//BUILT TO FETCH AND GET NEW RETURNED TABLE
+export const fetchSelectedTopics = () => {
+    return fetch(`${API}/selectedTopics`)
+    .then(response => response.json())
+    .then(
+        (topics) => {
+            letterBuilder.selectedTopics = topics
+        }
+    )
+}
 
-// export const fetchSelectedTopics = () => {
-//     return fetch(`${API}/selectedTopics`)
-//     .then(response => response.json())
-//     .then(
-//         () => {
-//             letterBuilder.
-//         }
-//     )
-// }
+export const getSelectedTopics = () => {
+ return letterBuilder.selectedTopics.map(topic => ({...topic}))
+}
 
 export const getLetters = () => {
     return letterBuilder.letters.map(letter => ({...letter}))
@@ -90,4 +95,20 @@ export const sendLetter = (userInput) => {
         mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
     })
 
+}
+
+export const sendTopic = (userInput) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userInput)
+    }
+
+    return fetch(`${API}/selectedTopics`, fetchOptions)
+    .then(response => response.json())
+    .then(() => {
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    })
 }
