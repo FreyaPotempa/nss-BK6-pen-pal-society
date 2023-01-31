@@ -1,4 +1,4 @@
-import { getLetters, getAuthors, getTopics, getRecipients } from "./dataAccess.js";
+import { getLetters, getAuthors, getTopics, getRecipients, getSelectedTopics } from "./dataAccess.js";
 
 
 export const PastLetters = () => {
@@ -9,10 +9,24 @@ const matchLetterAuthor = (letter) => {
             const letterAuthor = authors.find(author => letter.authorId === author.id)
             return `${letterAuthor.aName} (${letterAuthor.aEmail})`
         }
-const matchLetterTopic = (letter) => {
+const matchLetterTopics = (letter) => {
+    const selectedtopics = getSelectedTopics()
+    //filters all selected topics to just return the one that matches this letter
+    const letterTopics = selectedtopics.filter(selectTopic => letter.letterId === selectTopic.letterId)
     const topics = getTopics()
-    const letterTopic = topics.find(topic => letter.topicId === topic.id)
-    return `${letterTopic.title}`
+
+    //currently have all topicIds relevant to that letter
+    //need to match those to the topics array to print the new list.
+
+    let listItems = ""
+    for (const topic of topics) {
+        for (const letterTopic of letterTopics) {
+            if (letterTopic.topicId === topic.id) {
+                listItems += `${topic.title} `
+            }
+        }
+    }
+    return listItems
 }
 
 const matchLetterRecipient = (letter) => {
@@ -33,9 +47,6 @@ const makeDateReadable = (letter) => {
     return `${testDate}`
 }
 
-
-//NEXT Add Date using toLocaleString
-
     let html = `<div class="letterList">
     ${letters.map(letter => {
         return `<div class="postedLetter" id="${letter.id}">
@@ -44,7 +55,8 @@ const makeDateReadable = (letter) => {
         <p>Regards,<br>
         ${matchLetterAuthor(letter)}</p>
         <i>Sent on ${makeDateReadable(letter)}</i>
-        <button class="selectedTopics">${matchLetterTopic(letter)}</button>
+        <div class="selectedTopics">${matchLetterTopics(letter)}</div>
+       
         </div>`
     }).join("")}
     </div>`
@@ -53,7 +65,6 @@ const makeDateReadable = (letter) => {
 
     return html
 }
-
 
 //ADVANCED: need new join table that will hold
 // okay make a new join table using letterId and topicId (just 2 foreign keys)

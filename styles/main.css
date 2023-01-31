@@ -47,7 +47,10 @@ textarea {
 }
 
 .selectedTopics {
-    width: 20%;
+    font-weight: bold;
+    border: 1px solid gray;
+    padding: 4px;
     border-radius: 25%;
+    width:fit-content;
 
 }

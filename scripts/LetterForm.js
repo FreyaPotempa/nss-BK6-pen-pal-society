@@ -1,4 +1,4 @@
-import { getAuthors, getRecipients, getTopics, sendLetter } from "./dataAccess.js"
+import { getAuthors, getLetters, getRecipients, getTopics, sendLetter, sendTopic } from "./dataAccess.js"
 
 
 const mainContainer = document.querySelector("#container")
@@ -10,15 +10,31 @@ mainContainer.addEventListener(
             const letter = document.querySelector("textarea").value
             const letterAuthor = parseInt(document.querySelector(".authors option:checked").value)
             const letterRecipient = parseInt(document.querySelector(".recipients option:checked").value)
-            const letterTopic = parseInt(document.querySelector("input[name='topic']:checked").value)
+            const letterTopics = document.querySelectorAll("input[name='topic']:checked")
+            const pastLetters = getLetters()
+            const setLetterId = pastLetters.length + 1
+            
+            for (const letterTopic of letterTopics) {
+                const letterTopicId = parseInt(letterTopic.value)
+                const topicToSendToAPI = {
+                    topicId: letterTopicId,
+                    letterId: setLetterId
+                }
+
+                sendTopic(topicToSendToAPI)
+            }
+
+            console.log(letterTopics)
 
             const letterToSendToAPI = {
+                letterId: setLetterId,
                 letterContent: letter,
                 authorId: letterAuthor,
                 recipientId: letterRecipient,
-                topicId: letterTopic,
+                // topicId: letterTopic,
                 sent: new Date()
             }
+
 
             sendLetter(letterToSendToAPI)
 
@@ -26,7 +42,9 @@ mainContainer.addEventListener(
     }
 )
 
-
+/*
+Within the event listener, I will also post a separate fetch with topic and letterId
+*/
 
 export const LetterForm = () => {
     let html = ""
@@ -52,10 +70,11 @@ export const LetterForm = () => {
     const topics = getTopics()
     html += 
     //radio buttons of topics
+    //ADV checkboxes to select multiple topics
     `<div class="topics">
     ${topics.map(topic => {
         return `
-        <input type="radio" name="topic" value="${topic.id}" />${topic.title}`
+        <input type="checkbox" name="topic" value="${topic.id}" />${topic.title}`
     }).join("")} 
     </div>`
     
@@ -85,6 +104,6 @@ export const LetterForm = () => {
     <article>
     <button type="button" id="sendLetter">Send Letter</button>
     </article>`
-    
+
     return html
 }

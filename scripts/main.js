@@ -1,4 +1,4 @@
-import { fetchAuthors, fetchRecipients, fetchTopics, fetchLetters } from "./dataAccess.js"
+import { fetchAuthors, fetchRecipients, fetchTopics, fetchLetters, fetchSelectedTopics } from "./dataAccess.js"
 import { PenPal } from "./PenPal.js"
 
 
@@ -16,6 +16,7 @@ export const renderAll = () => {
     .then(() => fetchAuthors())
     .then(() => fetchRecipients())
     .then(() => fetchTopics())
+    .then(() => fetchSelectedTopics())
     .then(
         () => {
             mainContainer.innerHTML = PenPal()
